@@ -9,24 +9,16 @@
 <body>
     <?php    
     if(!empty($_POST))
-    {
-        if(!empty($_POST['login']) && !empty($_POST['mdp']))
-        {
-            echo '<h2>';
-            echo "login: ". $_POST['login'] . " mdp: ". $_POST['mdp'];
-            echo '</h2>';
-        }
+    {   
+        
     } 
     ?> 
 
     <form action="index.php" method="post">
 
-        <h1>Home/Login</h1>
-
+        <h1>Home/SignIn</h1>
 
         <div> <input name="login" type="text" placeholder="login" required> </div>
-
-        
         
         <div> <input name="mdp" type="password" placeholder="password" required>  </div>
 

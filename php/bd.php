@@ -1,6 +1,6 @@
 <?php
     // peut-être plus adéquat de faire les déclarations dans bd_connexion (pour éviter les variables globales) ?
-    $bd_file = 'DATABASE/base_tp6.sqlite';
+    $bd_file = '/home/pierre/Documents/stageIriaf/php/DATABASE/base_tp6.sqlite';
 
     // pour PDO : instance de la classe
     // Ce n'est pas élégant d'avoir une variable globale.
@@ -37,6 +37,7 @@
         // - on exécute la requête : 'PRAGMA foreign_keys = ON;'
         try
         {
+  	    
             $bd_obj = new PDO('sqlite:' . $bd_file);
             //$bd_obj->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  // valeur par défaut
             $bd_obj->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);  // ou PDO::ERRMODE_SILENT
@@ -51,6 +52,8 @@
             exit();
         }
     }
+
+    
 
     // déconnexion (code obligeament fourni)
     function bd_deconnexion()
