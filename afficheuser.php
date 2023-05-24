@@ -1,6 +1,11 @@
 <?php 
-include_once("bd.php");
+include_once("database/bd.php");
 bd_connexion();
+session_start();
+if(!isset($_SESSION['role']) || $_SESSION['role'] != 'admin')
+    {
+        header('Location: '. 'http://127.0.0.1/index.php');
+    }
 ?>
 <!DOCTYPE html>
     <head> 
@@ -15,6 +20,7 @@ bd_connexion();
           echo '<th> username </th>';
           echo '<th> password </th>';
           echo '<th> email </th>';
+          echo '<th> role </th>';
 
 
           while (($ligne = $result->fetch(PDO::FETCH_ASSOC)) !== false)
@@ -24,6 +30,7 @@ bd_connexion();
                 echo '<td>'. $ligne['username'] .'</td>';
                 echo '<td>'. $ligne['password'] .'</td>';
                 echo '<td>'. $ligne['email'] .'</td>';
+                echo '<td>'. $ligne['role'] .'</td>';
                 echo '</tr>';
             }
           echo '</table>';

@@ -3,6 +3,7 @@
 	ini_set('display_startup_errors', '1');
 	error_reporting(E_ALL);
 	
+	session_start();
 	include_once('../database/bd.php');
         bd_connexion(); 
 ?>
@@ -12,6 +13,8 @@
     <?php
 	include "../header.php"
     ?>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../Style/inputs.css">
 </head>
 <body>
 <br>
@@ -28,10 +31,18 @@
 		$res = bd_requete($sql);
 		#echo '<table><thead><tr><th>id</th><th>nom</th><th>prix</th></tr></thead><tbody>';
 		while(($ligne = $res->fetch(PDO::FETCH_ASSOC))) {
-			echo '<tr><td>' . $ligne["rowid"] . '</td>' . ' <td>' . $ligne["nom"] . '</td> ' . '<td>' . $ligne["prix"] . '</td><br>';
+			// echo '<tr><td>' . $ligne["rowid"] . '</td>' . ' <td>' . $ligne["nom"] . '</td> ' . '<td>' . $ligne["prix"] . '</td><br>';
+			echo '<h1> found!! </h1>';
+			echo '<div class="card" >';
+			echo '<img src="'. $ligne["image"] . '" alt="Avatar"   style="width: 100px; height:100px;">';
+			echo '<div class="container">';
+			echo '<h4><b> Produit: '. $ligne["nom"] .'</b></h4> ';
+			echo '<p> Prix: '. $ligne["prix"].'</p>'; 
+			echo '</div>';
+			echo '</div>';
 		}
 		$res->closeCursor();
-		
+	
 	}
 	else{
 	 echo 'pas de recherche';

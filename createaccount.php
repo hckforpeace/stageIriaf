@@ -1,21 +1,19 @@
 <?php 
-include_once("bd.php");
+include_once("database/bd.php");
+
+
+
 bd_connexion();
 $error_message = "erreur dans le/les Champ(s)";
-$errors= false;
+$errors = false;
+include "state.php";
 
-function contains(string $mot,array $liste): bool
-{
-    $rep = false;
-    foreach($liste as $val)
-    {
-        $rep = $rep || str_contains($mot,$val);
-    }
-}
+
 ?>
 <!DOCTYPE html>
     <head>
     <link rel="stylesheet" href="style.css">
+    <title> logIn </title>
     <head>
     <body>
         <?php 
@@ -35,8 +33,9 @@ function contains(string $mot,array $liste): bool
 
             if($errors == false)
             {
-                $sql = 'INSERT INTO users (username,password,email) VALUES ("'. $_POST['username']. '","' . $_POST['pwd']. '","'. $_POST['email'] .'") ' ;
+                $sql = 'INSERT INTO users(username,password,email) VALUES ("'. $_POST['username']. '","' . $_POST['pwd']. '","'. $_POST['email'] .'") ' ;
                 $result = bd_requete($sql,true);
+                header('Location: '. 'http://127.0.0.1/login.php');
             }
                 
         }
@@ -69,10 +68,17 @@ function contains(string $mot,array $liste): bool
            
         </form>
     <br/>
-        <a href="afficheuser.php"> Affiche users </a>
-        <br/>
-        <a href="clearusers.php"> Delete tout les users <a>
-
+    <a href="afficheuser.php" <?php echo $hidhide?> > Affiche users </a>
+    <br/>
+    <a href="clearusers.php" <?php echo $hidhide?>> Delete tout les users <a>
+    </br>
+    <a href="http://127.0.0.1/index.php">Menu Principal</a>
+        
+    <footer>
+    <?php
+    include "footer.php"
+    ?>
+    </footer>
     </body>
 </html>
 

@@ -1,3 +1,3 @@
 <div>
-je footer
+
 </div>
