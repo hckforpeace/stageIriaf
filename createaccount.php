@@ -33,7 +33,8 @@ include "state.php";
 
             if($errors == false)
             {
-                $sql = 'INSERT INTO users(username,password,email) VALUES ("'. $_POST['username']. '","' . $_POST['pwd']. '","'. $_POST['email'] .'") ' ;
+                $pwd = hash('sha256', $_POST['pwd'], false);
+                $sql = 'INSERT INTO users(username,password,email) VALUES ("'. $_POST['username']. '","' . $pwd . '","'. $_POST['email'] .'") ' ;
                 $result = bd_requete($sql,true);
                 header('Location: '. 'http://127.0.0.1/login.php');
             }

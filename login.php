@@ -15,6 +15,7 @@
     {
         if(!empty($_POST['login']) && !empty($_POST['mdp']))
         {
+            $pwd = hash('sha256', $_POST['mdp'], false);
             $sql = '  SELECT * FROM users WHERE users.username = "' . $_POST['login'] . '" AND users.password = "'. $_POST['mdp'] . '";';
             $result = bd_requete($sql,true);
             $ligne = $result->fetch(PDO::FETCH_ASSOC);
