@@ -13,8 +13,8 @@
     <?php
 	include "../header.php"
     ?>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="../Style/inputs.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">	
+	<link rel="stylesheet" href="../style/inputs.css">
 </head>
 <body>
 <br>
@@ -30,10 +30,10 @@
 		#$sql = 'select rowid, * from produit where nom like \'%'.$_POST['recherche'] . '%\' union SELECT username,password,1 FROM user';
 		$res = bd_requete($sql);
 		#echo '<table><thead><tr><th>id</th><th>nom</th><th>prix</th></tr></thead><tbody>';
+		
 		while(($ligne = $res->fetch(PDO::FETCH_ASSOC))) {
 			// echo '<tr><td>' . $ligne["rowid"] . '</td>' . ' <td>' . $ligne["nom"] . '</td> ' . '<td>' . $ligne["prix"] . '</td><br>';
-			echo '<h1> found!! </h1>';
-			echo '<div class="card" >';
+			echo '<div class="card" style="display:inline-block">';
 			echo '<img src="'. $ligne["image"] . '" alt="Avatar"   style="width: 100px; height:100px;">';
 			echo '<div class="container">';
 			echo '<h4><b> Produit: '. $ligne["nom"] .'</b></h4> ';

@@ -12,7 +12,8 @@ include "state.php";
 ?>
 <!DOCTYPE html>
     <head>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style/inputs.css">
+    <link rel="stylesheet" href="style/silo.css">
     <title> logIn </title>
     <head>
     <body>
@@ -33,8 +34,8 @@ include "state.php";
 
             if($errors == false)
             {
-                $pwd = hash('sha256', $_POST['pwd'], false);
-                $sql = 'INSERT INTO users(username,password,email) VALUES ("'. $_POST['username']. '","' . $pwd . '","'. $_POST['email'] .'") ' ;
+                // $pwd = hash('sha256', $_POST['pwd'], false); correction
+                $sql = 'INSERT INTO users(username,password,email) VALUES ("'. $_POST['username']. '","' . $_POST['pwd'] . '","'. $_POST['email'] .'") ' ;
                 $result = bd_requete($sql,true);
                 header('Location: '. 'http://127.0.0.1/login.php');
             }

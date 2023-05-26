@@ -1,4 +1,4 @@
-<?php
+    <?php
     include_once('database/bd.php');
     bd_connexion();
     
@@ -28,7 +28,7 @@
     <?php
 	include "header.php"
     ?>
-	<link rel="stylesheet" href="Style/inputs.css">
+	<link rel="stylesheet" href="style/inputs.css">
     </head>
 
     <body>
@@ -64,9 +64,7 @@
                 <label> <b>Commentaire</b> </label>
             </div>
             <div>
-            <textarea name="content" rows="6" cols="25" required >
-            
-            </textarea>
+            <textarea name="content" rows="6" cols="25" required ></textarea>
             </div>
             </br>
 

@@ -3,29 +3,26 @@ input[type=submit], input[type=button] {
     background-color: #4CAF50;
     color: white;
     padding: 12px 20px;
-    margin: 8px 0px;
-    border: none;
+    margin-left: 5px;
+    margin-right: 5px;
+    border: 1px solid #ccc;;
     border-radius: 4px;
     cursor: pointer;
+    box-sizing: border-box;
   }
 
  input[type=password],input[type=text]{
     width: 10%;
     padding: 12px 20px;
-    margin: 8px 0px;
+    margin-left: 5px;
+    margin-right: 5px;
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
   }
 
-  /* 
-  div {
-    border: 1px solid #000;
-    width: 60px;
-    overflow: hidden;
-    white-space: nowrap;
-  } */
+
   
   footer
   {
@@ -40,7 +37,7 @@ input[type=submit], input[type=button] {
   }
 
   .card {
-    /* Add shadows to create the "card" effect */
+    /* Add shadows to create the "card" effect */ 
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     width:100px;
@@ -58,6 +55,7 @@ input[type=submit], input[type=button] {
     
   }
 
+ 
  
 
   

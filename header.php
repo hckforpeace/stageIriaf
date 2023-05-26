@@ -63,7 +63,7 @@
     
     <input type="submit" value="rechercher" />
     <input type="text" name="recherche" placeholder="Rechercher" 
-    value="<?php echo (isset($_GET) and !empty($_GET['recherche'])) ? $_GET['recherche'] :  '' ?> "/>
+    value="<?php echo (isset($_GET) and !empty($_GET['recherche'])) ? $_GET['recherche'] :'' ?>"/>
    
 
 </form>

@@ -11,7 +11,7 @@
 
 <html>
 <head>
-	<link rel="stylesheet" href="Style/inputs.css">
+	<link rel="stylesheet" href="style/inputs.css">
     <?php
 	include "header.php";
     ?>
