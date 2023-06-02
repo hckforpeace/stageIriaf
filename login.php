@@ -3,6 +3,7 @@
     bd_connexion();
     $etat = "";
     include "state.php";
+    session_start();
 ?>
 <!DOCTYPE html>
 <head>
@@ -17,16 +18,14 @@
         if(!empty($_POST['login']) && !empty($_POST['mdp']))
         {
             
-            // $pwd = hash('sha256', $_POST['mdp'], false); 
-            $sql = 'SELECT * FROM users WHERE users.username = "' . $_POST['login'] . '" AND users.password = "'. $_POST['mdp']. '";';
+            $pwd = bd__hash($_POST['mdp']);
+            $sql = 'SELECT * FROM users WHERE users.username = "' . $_POST['login'] . '" AND users.password = "'. $pwd. '";';
             $result = bd_requete($sql,true);
             $ligne = $result->fetch(PDO::FETCH_ASSOC);
-            if(empty($ligne))
-            {
+            if(empty($ligne)){
                 $etat = "wrong ";
             }
-            else
-            {
+            else{
                 session_start();
                 $_SESSION["auth"] = true;
                 $_SESSION['username'] = $_POST['login'];

@@ -25,19 +25,21 @@
 	Recherche :
 	<?php
 	if (isset($_GET) and !empty($_GET['recherche'])){
-		$sql = 'select rowid, * from produit where nom like \'%'.$_GET['recherche'] . '%\'';
-		print_r($sql."<br>");
-		#$sql = 'select rowid, * from produit where nom like \'%'.$_POST['recherche'] . '%\' union SELECT username,password,1 FROM user';
-		$res = bd_requete($sql);
-		#echo '<table><thead><tr><th>id</th><th>nom</th><th>prix</th></tr></thead><tbody>';
+		$req = 'select * from produit where nom like \'%'.$_GET['recherche'] . '%\'';
+		echo $req . '<br>';
+		$res = bd_requete($req);
 		
-		while(($ligne = $res->fetch(PDO::FETCH_ASSOC))) {
-			// echo '<tr><td>' . $ligne["rowid"] . '</td>' . ' <td>' . $ligne["nom"] . '</td> ' . '<td>' . $ligne["prix"] . '</td><br>';
+		//TODO 2.2 : Modifier $req et utiliser la fonction bd_requete_preparee à la place
+		
+		//$params = ['recherche' => '%'.$_GET['recherche'].'%'];
+		//$res = bd_requete_preparee($sql, $params);
+		
+		while(($ligne = $res->fetch(PDO::FETCH_ASSOC))) { // Affichage de la requête
 			echo '<div class="card" style="display:inline-block">';
 			echo '<img src="'. $ligne["image"] . '" alt="Avatar"   style="width: 100px; height:100px;">';
 			echo '<div class="container">';
-			echo '<h4><b> Produit: '. $ligne["nom"] .'</b></h4> ';
-			echo '<p> Prix: '. $ligne["prix"].'</p>'; 
+			echo '<h4><b>'. $ligne["nom"] .'</b></h4> ';
+			echo '<p>Prix: '. $ligne["prix"].'€</p>'; 
 			echo '</div>';
 			echo '</div>';
 		}
