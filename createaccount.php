@@ -43,7 +43,7 @@ include "state.php";
         
         ?>
         <form action="createaccount.php" method="post">
-            <h1>Sign In</h1>
+            <h1>S'inscrire</h1>
             </br>
             <?php
             if($errors)

@@ -17,8 +17,7 @@
 
         <?php 
         if(!empty($_POST))
-        {
-            
+        {            
             $sql = ' INSERT INTO Comments (name,content) VALUES ("'.$_POST['name'].'","'.$_POST['content'].'");';
             $result = bd_requete($sql,true);
         }
@@ -29,6 +28,7 @@
 	include "header.php"
     ?>
 	<link rel="stylesheet" href="style/inputs.css">
+    <script src="xhr.js"></script>
     </head>
 
     <body>
