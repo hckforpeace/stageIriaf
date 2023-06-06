@@ -8,6 +8,7 @@ input[type=submit], input[type=button] {
     border: 1px solid #ccc;;
     border-radius: 4px;
     cursor: pointer;
+    min-width: 100px;
     box-sizing: border-box;
   }
 
@@ -19,7 +20,12 @@ input[type=submit], input[type=button] {
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;
+    min-width: 100px;
     box-sizing: border-box;
+  }
+
+  input[type=text]{
+    min-width: 150px;
   }
 
 

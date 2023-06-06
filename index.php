@@ -22,9 +22,7 @@
 <br>
 <br>
 <br>
-	<div>
-	Bonjour index ici
-	</div>
+	
 <div>
 	<footer>
 <?php

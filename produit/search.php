@@ -22,11 +22,10 @@
 <br>
 <br>
 	<div>
-	Recherche :
 	<?php
 	if (isset($_GET) and !empty($_GET['recherche'])){
 		$sql = 'select rowid, * from produit where nom like \'%'.$_GET['recherche'] . '%\'';
-		print_r($sql."<br>");
+		// print_r($sql."<br>");
 		#$sql = 'select rowid, * from produit where nom like \'%'.$_POST['recherche'] . '%\' union SELECT username,password,1 FROM user';
 		$res = bd_requete($sql);
 		#echo '<table><thead><tr><th>id</th><th>nom</th><th>prix</th></tr></thead><tbody>';
