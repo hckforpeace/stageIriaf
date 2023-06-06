@@ -36,7 +36,7 @@ include "state.php";
                 $pwd = bd_hash($_POST['pwd']);
                 $sql = 'INSERT INTO users(username,password,email) VALUES ("'. $_POST['username']. '","' . $pwd . '","'. $_POST['email'] .'") ' ;
                 $result = bd_requete($sql,true);
-                header('Location: '. 'http://127.0.0.1/login.php');
+                header('Location: '. 'login.php');
             }
                 
         }

@@ -43,21 +43,22 @@
     function bd_requete($requete, $stopOnError = false)
     {
         global $bd_pdo;
-        $result = $bd_pdo->query($requete);
-        
+        try{
+	$result = $bd_pdo->query($requete);
+        }
+	catch(PDOException $e){
+		echo $e->getMessage();
+	}
         if ($stopOnError)
         {
             if ($result === false)
                 bd_erreur('erreur requête "' . $requete . '"');
         }
-
+	
         return $result;
     }
 
-    //A compléter pour le 2.2 : Prévention
-    // Parametre :
-    // - $requete : la requete SQL avec à la place des parametres la chaine :nomDuParam
-    // - $params : Un tableau avec les parametres de la forme ['nomDuParam' => valeurDuParam] 
+
     function bd_requete_preparee($requete, $params = [], $stopOnError = false)
     {
         global $bd_pdo;
@@ -87,11 +88,10 @@
     //Fonction de salage d'une variable
     $salt = null;
     function bd_salage($var){
-    	return $var;
     }
     
     function bd_hash($var){
-    	return  hash('sha256', bd_salage($var));
+    	return hash('sha256', $var.'toto');
     }
 
 ?>

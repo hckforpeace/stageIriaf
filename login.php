@@ -18,7 +18,7 @@
         if(!empty($_POST['login']) && !empty($_POST['mdp']))
         {
             
-            $pwd = bd__hash($_POST['mdp']);
+            $pwd = bd_hash($_POST['mdp']);
             $sql = 'SELECT * FROM users WHERE users.username = "' . $_POST['login'] . '" AND users.password = "'. $pwd. '";';
             $result = bd_requete($sql,true);
             $ligne = $result->fetch(PDO::FETCH_ASSOC);
@@ -30,7 +30,7 @@
                 $_SESSION["auth"] = true;
                 $_SESSION['username'] = $_POST['login'];
                 $_SESSION['role'] = $ligne['role'];
-                header('Location: '. 'http://127.0.0.1/index.php');
+                header('Location: '. 'index.php');
             }
 
 
@@ -60,7 +60,7 @@
         <br/>
         <a href="createaccount.php"> creer un compte <a>
         </br>
-        <a href="http://127.0.0.1/index.php">Menu Principal</a>
+        <a href="index.php">Menu Principal</a>
         
 
     </form>

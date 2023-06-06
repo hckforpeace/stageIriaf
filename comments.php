@@ -70,9 +70,9 @@
 
             <input type="submit" value="submit">
         </form>
-        <a href="http://127.0.0.1/delcomments.php" <?php echo $hidhide; ?>>delete comments</a>
+        <a href="delcomments.php" <?php echo $hidhide; ?>>delete comments</a>
             </br>
-        <a href="http://127.0.0.1/index.php">Menu Principal</a>
+        <a href="index.php">Menu Principal</a>
 
         <footer>
         <?php

@@ -26,6 +26,7 @@
 	<?php
 	if (isset($_GET) and !empty($_GET['recherche'])){
 		$req = 'select * from produit where nom like \'%'.$_GET['recherche'] . '%\'';
+		
 		echo $req . '<br>';
 		$res = bd_requete($req);
 		
