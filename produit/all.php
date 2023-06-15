@@ -22,13 +22,17 @@
 	Tout les produits wouhou
 	<?php
 	$sql = 'select rowid, * from produit';
-	#$sql = 'INSERT INTO PRODUIT(nom, prix) values("carotte", 15)';
 	$res = bd_requete($sql);
             // - afficher le résultat dans une table  hTML
-            echo '<table><thead><tr><th>id</th><th>nom</th><th>prix</th></tr></thead><tbody>';
             while(($ligne = $res->fetch(PDO::FETCH_ASSOC))) {
-                echo '<tr><td>' . $ligne["rowid"] . '</td>' . '<td>' . $ligne["nom"] . '</td>' . '<td>' . $ligne["prix"] . '</td>';
-            }
+				echo '<div class="card" style="display:inline-block">';
+				echo '<img src="'. $ligne["image"] . '" alt="Avatar"   style="width: 100px; height:100px;">';
+				echo '<div class="container">';
+				echo '<h4><b> Produit: '. $ligne["nom"] .'</b></h4> ';
+				echo '<p> Prix: '. $ligne["prix"].' €</p>'; 
+				echo '</div>';
+				echo '</div>';
+			}
 	$res->closeCursor();
 	
 	?>

@@ -2,7 +2,7 @@
     session_start();
     if(!isset($_SESSION['role']) || $_SESSION['role'] != 'admin')
     {
-        header('Location: '. 'http://127.0.0.1/comments.php');
+        header('Location: '. 'comments.php');
     }
     else
     {
@@ -11,10 +11,6 @@
         $sql = 'DELETE FROM Comments ;';
         bd_requete($sql);
         bd_deconnexion();
-        header('Location: '. 'http://127.0.0.1/comments.php');
-    }
-        
-
-
-    
+        header('Location: '. 'comments.php');
+    }    
 ?>

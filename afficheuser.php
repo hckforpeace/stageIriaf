@@ -4,7 +4,7 @@ bd_connexion();
 session_start();
 if(!isset($_SESSION['role']) || $_SESSION['role'] != 'admin')
     {
-        header('Location: '. 'http://127.0.0.1/index.php');
+        header('Location: '. 'index.php');
     }
 ?>
 <!DOCTYPE html>
