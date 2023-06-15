@@ -3,7 +3,6 @@
     bd_connexion();
     $etat = "";
     include "state.php";
-    session_start();
 ?>
 <!DOCTYPE html>
 <head>
@@ -18,19 +17,21 @@
         if(!empty($_POST['login']) && !empty($_POST['mdp']))
         {
             
-            $pwd = bd_hash($_POST['mdp']);
-            $sql = 'SELECT * FROM users WHERE users.username = "' . $_POST['login'] . '" AND users.password = "'. $pwd. '";';
+            // $pwd = hash('sha256', $_POST['mdp'], false); 
+            $sql = 'SELECT * FROM users WHERE users.username = "' . $_POST['login'] . '" AND users.password = "'. $_POST['mdp']. '";';
             $result = bd_requete($sql,true);
             $ligne = $result->fetch(PDO::FETCH_ASSOC);
-            if(empty($ligne)){
+            if(empty($ligne))
+            {
                 $etat = "wrong ";
             }
-            else{
+            else
+            {
                 session_start();
                 $_SESSION["auth"] = true;
                 $_SESSION['username'] = $_POST['login'];
                 $_SESSION['role'] = $ligne['role'];
-                header('Location: '. 'index.php');
+                header('Location: '. 'http://127.0.0.1/index.php');
             }
 
 
@@ -60,7 +61,7 @@
         <br/>
         <a href="createaccount.php"> creer un compte <a>
         </br>
-        <a href="index.php">Menu Principal</a>
+        <a href="http://127.0.0.1/index.php">Menu Principal</a>
         
 
     </form>

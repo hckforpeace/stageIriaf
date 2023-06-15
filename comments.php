@@ -18,7 +18,7 @@
         <?php 
         if(!empty($_POST))
         {            
-            $sql = ' INSERT INTO Comments (name,content) VALUES ("'.$_POST['name'].'","'.$_POST['content'].'");';
+            $sql = 'insert into Comments (name,content) values ("'.$_POST['name'].'","'.$_POST['content'].'");';
             $result = bd_requete($sql,true);
         }
         ?>
@@ -28,7 +28,7 @@
 	include "header.php"
     ?>
 	<link rel="stylesheet" href="style/inputs.css">
-    <script src="xhr.js"></script>
+    <!-- <script src="xhr.js"></script> -->
     </head>
 
     <body>
@@ -70,9 +70,9 @@
 
             <input type="submit" value="submit">
         </form>
-        <a href="delcomments.php" <?php echo $hidhide; ?>>delete comments</a>
+        <a href="http://127.0.0.1/delcomments.php" <?php echo $hidhide; ?>>delete comments</a>
             </br>
-        <a href="index.php">Menu Principal</a>
+        <a href="http://127.0.0.1/index.php">Menu Principal</a>
 
         <footer>
         <?php
