@@ -18,7 +18,7 @@
         {
             
             $pwd = bd_hash($_POST['mdp']);
-            $sql = 'SELECT * FROM users WHERE users.username = "' . $_POST['login'] . '" AND users.password = "'. $_POST['mdp']. '";';
+            $sql = 'SELECT * FROM users WHERE users.username = "' . $_POST['login'] . '" AND users.password = "'. $pwd. '";';
             $result = bd_requete($sql,true);
             $ligne = $result->fetch(PDO::FETCH_ASSOC);
 
@@ -34,6 +34,7 @@
                 $_SESSION['role'] = $ligne['role'];
                 header('Location: '. 'index.php');
             }
+	$result->closeCursor();
 
 
 

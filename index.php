@@ -7,6 +7,7 @@
 	error_reporting(E_ALL);
 	
 	include_once('database/bd.php');
+        bd_connexion(); 
 ?>
 
 <html>
@@ -19,7 +20,7 @@
 </head>
 <body>
 	<div>
-	Produits :
+	Produits :<br>
 	<?php
 	$sql = 'select rowid, * from produit';
 	$res = bd_requete($sql);
@@ -42,12 +43,13 @@
 <br>
 	
 <div>
-	<footer>
+<footer>
 <?php
 include "footer.php";
 ?>
 </footer>
 </body>
 <?php 
+bd_deconnexion();
 ?>
 </html>

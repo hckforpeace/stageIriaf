@@ -9,9 +9,11 @@
 
 <html>
 <head>
+	<link rel="stylesheet" href="../style/inputs.css">
     <?php
-	include "../header.php"
+	include "../header.php";
     ?>
+	
 </head>
 <body>
 <br>
@@ -19,7 +21,7 @@
 <br>
 <br>
 	<div>
-	Tout les produits wouhou
+	Produits :<br>
 	<?php
 	$sql = 'select rowid, * from produit';
 	$res = bd_requete($sql);
@@ -37,9 +39,19 @@
 	
 	?>
 	</div>
-
+<br>
+<br>
+<br>
+<br>
+	
+<div>
+<footer>
 <?php
-include "../footer.php"
+include "../footer.php";
 ?>
+</footer>
 </body>
+<?php 
+bd_deconnexion();
+?>
 </html>

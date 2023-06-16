@@ -28,7 +28,6 @@
         }
         catch (PDOException $e)
         {
-            // ne jamais faire ces affichages en prod
             echo "Erreur : " . $e->getMessage() . "\n";
             print_r($e);
             exit();
@@ -94,7 +93,7 @@
     }
     
     function bd_hash($var){
-    	return hash('sha256', $var);
+    	return hash('sha256', ($var));
     }
 
 ?>

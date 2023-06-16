@@ -32,9 +32,10 @@ include "state.php";
             if($errors == false)
             {
                 $pwd = bd_hash($_POST['pwd']);
-                $sql = 'INSERT INTO users(username,password,email) VALUES ("'. $_POST['username']. '","' . $_POST['pwd'] . '","'. $_POST['email'] .'") ' ;
+                $sql = 'INSERT INTO users(username,password,email) VALUES ("'. $_POST['username']. '","' . $pwd . '","'. $_POST['email'] .'") ' ;
                 $result = bd_requete($sql,true);
                 header('Location: '. 'login.php');
+		$result->closeCursor();
             }
                 
         }

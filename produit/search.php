@@ -1,9 +1,9 @@
 <?php
+	session_start();
 	ini_set('display_errors', '1');
 	ini_set('display_startup_errors', '1');
 	error_reporting(E_ALL);
 	
-	session_start();
 	include_once('../database/bd.php');
         bd_connexion(); 
 ?>
@@ -51,9 +51,14 @@
 	
 	?>
 	</div>
-
+<br><br>
+<footer>
 <?php
-include "../footer.php"
+include "../footer.php";
 ?>
+</footer>
 </body>
+<?php 
+bd_deconnexion();
+?>
 </html>
