@@ -10,6 +10,14 @@
         $uname = $_SESSION['username'];
     }
     include "state.php";
+
+    function debug_to_console($data) {
+        $output = $data;
+        if (is_array($output))
+            $output = implode(',', $output);
+    
+        echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
+    }
         
     
 ?>
@@ -18,7 +26,9 @@
         <?php 
         if(!empty($_POST))
         {            
-            $sql = 'insert into Comments (name,content) values ("'.$_POST['name'].'","'.$_POST['content'].'");';
+            //TODO modifier $sql en encodant les valeurs dans le $_POST
+            
+            $sql = 'insert into Comments (name,content) values ("'.$_POST['name'].'","'. $_POST['content'] .'");';
             $result = bd_requete($sql,true);
         }
         ?>
@@ -28,7 +38,6 @@
 	include "header.php"
     ?>
 	<link rel="stylesheet" href="style/inputs.css">
-    <!-- <script src="xhr.js"></script> -->
     </head>
 
     <body>
@@ -43,6 +52,7 @@
                     echo '<div>';
                     echo '<Label> <b> Nom: </b></label>' .'<p>' . $ligne['name'] . '</p>';
                     echo '<label> <b> commentaire: </b> </label>'.'<p>' . $ligne['content'] . '</p>';
+                    debug_to_console($ligne['content'] );
                     echo '</div>';
                     echo '</fieldset>';
                 }
